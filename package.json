@@ -1,0 +1,23 @@
+{
+	"name": "restie",
+	"version": "0.1.0",
+	"author": "Vadim Demedes <sbioko@gmail.com>",
+	"description": "ORM that operates with RESTful interface, rather than database.",
+	"devDependencies": {
+		"expect.js": "*",
+		"express": "*",
+		"async": "*",
+		"uglify-js": "*"
+	},
+	"dependencies": {
+		"request": "*"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vdemedes/restie.git"
+	},
+	"engine": {
+		"node": ">=0.4"
+	}
+}
