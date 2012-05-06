@@ -6,7 +6,7 @@ protection = (req, res, next) ->
 		do next
 	else
 		do res.end
-app = express.createServer express.static("#{ __dirname }/browser"), express.static(require('fs').realpathSync("#{ __dirname }/../build/browser")), express.bodyParser(), express.methodOverride(), protection
+app = express.createServer express.static("#{ __dirname }/browser"), express.static(require('fs').realpathSync("#{ __dirname }/../dist")), express.bodyParser(), express.methodOverride(), protection
 posts = [] # data store
 
 app.get '/posts', (req, res) ->

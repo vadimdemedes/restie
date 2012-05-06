@@ -4,7 +4,7 @@ Restie is a ORM that talks to RESTful interface, rather than database. For Node.
 
 # Installation
 
-Browser (requires jQuery):
+Browser (requires jQuery, 2.9kb minified and gzipped):
 
 ```html
 <!-- jQuery must be included before -->
@@ -131,27 +131,25 @@ Post.find_by_id(1, function(err, post){ // DELETE /posts/1
 
 # Tests
 
-Before you run tests, you should start test application:
+Before you run each batch of tests, you should start/restart test application:
 
 ```node test/server.js```
 
 Run tests for browser:
 
-```jake test:browser```
+```open http://localhost:8080/test.html```
 
 Run tests for Node.js:
 
-```jake test:nodejs```
+```mocha test/nodejs/*```
 
 # Contributing
 
-First of all, run ```jake -T``` to see list of available tasks. After you made some changes, do this:
-
-1. ```jake build:all```
-2. Write tests in *test/nodejs/restie.test.coffee*
-3. ```coffee -cb test/nodejs/restie.test.coffee && mv test/nodejs/restie.test.coffee test/browser/restie.test.js```
-4. Update test server code, if needed in *test/server.coffee*
-5. Make sure all tests pass in browser and Node.js environments
+- Fork
+- Write code, build using ```grunt```
+- Write tests for that code
+- Commit & push
+- Send pull request
 
 # License
 

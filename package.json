@@ -1,13 +1,12 @@
 {
 	"name": "restie",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": "Vadim Demedes <sbioko@gmail.com>",
 	"description": "ORM that operates with RESTful interface, rather than database.",
 	"devDependencies": {
 		"expect.js": "*",
 		"express": "*",
-		"async": "*",
-		"uglify-js": "*"
+		"async": "*"
 	},
 	"dependencies": {
 		"request": "*"

@@ -1,5 +1,5 @@
-class RequestAdapter
-	@request: (options, callback) ->
+class jQueryRequestAdapter
+	request: (options, callback) ->
 		if options.method is 'GET'
 			for key of options.form
 				if options.qs[key] and options.qs[key] is options.form[key]

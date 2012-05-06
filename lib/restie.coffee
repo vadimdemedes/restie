@@ -44,6 +44,15 @@ setRequestOptions = (options, request) ->
 	
 	request
 
+bakeModels = (items, _model) ->
+	models = []
+	for item in items
+		model = new _model
+		for key of item # setting keys and values
+			model[key] = item[key]
+		models.push model
+	models
+
 class Model # Generic model for all resources
 	constructor: (fields) ->
 		for key of fields
@@ -55,13 +64,10 @@ class Model # Generic model for all resources
 			@options[key] = options[key]
 	
 	@bakeModels: (items) -> # converting plain objects into Restie models
-		models = []
-		for item in items
-			model = new @model
-			for key of item # setting keys and values
-				model[key] = item[key]
-			models.push model
-		models
+		bakeModels items, @model
+	
+	bakeModels: (items) ->
+		bakeModels items, @model
 	
 	setRequestOptions: (request) ->
 		setRequestOptions @options, request
@@ -155,14 +161,14 @@ class Model # Generic model for all resources
 			else
 				callback res
 		
-
-Restie.env = if window? then 'browser' else 'nodejs'
-Restie.adapter = RequestAdapter
-
-if Restie.env is 'nodejs'
-	module.exports = Restie
-else
-	window.Restie = Restie
+if window.location?
+	Restie.env = 'browser'
+	Restie.adapter = new jQueryRequestAdapter
 	Restie.set
 		urls:
 			base: window.location.host
+	window.Restie = Restie
+else
+	Restie.env = 'nodejs'
+	Restie.adapter = new NodejsRequestAdapter
+	module.exports = Restie

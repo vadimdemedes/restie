@@ -4,7 +4,6 @@ var app, express, posts, protection;
 express = require('express');
 
 protection = function(req, res, next) {
-  console.log(req);
   if (req.headers['x-authorization'] === '12345' && req.query['_csrf_token'] === '12345' && (req.method === 'GET' ? true : req.body['_csrf_token'] === '12345')) {
     return next();
   } else {
@@ -12,7 +11,7 @@ protection = function(req, res, next) {
   }
 };
 
-app = express.createServer(express["static"]("" + __dirname + "/browser"), express["static"](require('fs').realpathSync("" + __dirname + "/../build/browser")), express.bodyParser(), express.methodOverride(), protection);
+app = express.createServer(express["static"]("" + __dirname + "/browser"), express["static"](require('fs').realpathSync("" + __dirname + "/../dist")), express.bodyParser(), express.methodOverride(), protection);
 
 posts = [];
 

@@ -1,1 +1,1 @@
-module.exports = require('./build/nodejs/restie');
+module.exports = require('./dist/restie');
