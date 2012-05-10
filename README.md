@@ -72,12 +72,12 @@ Post.find_by_id(1, function(err, post){ // GET /posts/1
 
 *Warning*. When you declare primaryKey, Restie looks for it and declares two methods:
 
-- find_by_[primary key] - for underscore lovers
+- find\_by\_[primary key] - for underscore lovers
 - findBy[primary key] - for underscore haters
 
 So, if you will set 'title' as your primary key, Post model will have these methods available:
 
-- find_by_title
+- find\_by\_title
 - findByTitle
 
 Support for parameters in find operation will be implemented soon.
